@@ -11,8 +11,8 @@ class Status(models.Model):
     updated_at = models.DateTimeField(auto_now=True, verbose_name="Изменено")  # date update
 
     class Meta:
-        verbose_name_plural = 'Статус'
-        verbose_name = 'Статусы заказа'
+        verbose_name = 'Статус'
+        verbose_name_plural = 'Статусы'
 
     def __str__(self):
         return 'Cтатус %s' % self.name
@@ -39,9 +39,9 @@ class Order(models.Model):
 class ProductInOrder(models.Model):
     order = models.ForeignKey(Order, on_delete=models.CASCADE, blank=True, null=True, default=None)
     product = models.ForeignKey(Products, on_delete=models.CASCADE, blank=True, null=True, default=None)
-    customer_name = models.CharField(max_length=20)
-    customer_email = models.EmailField()
-    customer_phone = models.CharField(max_length=20, blank=True, null=True, default=None)
+    # customer_name = models.CharField(max_length=20)
+    # customer_email = models.EmailField()
+    # customer_phone = models.CharField(max_length=20, blank=True, null=True, default=None)
     is_active = models.BooleanField(default=True)
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # date created

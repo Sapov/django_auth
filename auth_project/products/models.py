@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Products(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=64)
     descriptions = models.TextField(blank=True, null=True, default=None)
 
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Добавлено")  # date created
@@ -13,7 +13,7 @@ class Products(models.Model):
         verbose_name = 'Товары'
 
     def __str__(self):
-        return str(self.name)
+        return '%s' % self.name
 
 
 class ProductImage(models.Model):
